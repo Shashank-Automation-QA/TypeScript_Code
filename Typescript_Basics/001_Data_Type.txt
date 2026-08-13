@@ -1,0 +1,14 @@
+>>Typescript is basically a extended version of javascript and here the one difference is that we just need to 
+  define the data type while declaring the variable so that means it will take only same data type arguments.
+
+ Here we will see how many of data types are present in TypeScript language
+- string
+- number
+- boolean
+- null and undefined
+- any vs unknown 
+- Array
+- Tuple
+- Type Aliases and Union Types
+
+
