@@ -11,7 +11,7 @@ console.log(user_name[1]);    //  >>  singh
 
 // Array Add Methods
 let arr1 = [10, 20, "shashank"];
-console.log(arr1.push(30)); // 3
+console.log(arr1.push(30)); // 4
 console.log(arr1); // [10, 20, "shashank", 30]
 
 let arr2 = [20, 30];
