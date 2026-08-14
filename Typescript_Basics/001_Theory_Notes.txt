@@ -1,0 +1,53 @@
+>>Typescript is basically a extended version of javascript and here the one difference is that we just need to 
+  define the data type while declaring the variable so that means it will take only same data type arguments.
+
+ Here we will see how many of data types are present in TypeScript language
+- string
+- number
+- boolean
+- null and undefined
+- any vs unknown 
+- Array
+- Tuple
+- Type Aliases and Union Types
+
+In TypeScript === operator checks values as well as datatype   ==>>>   (10===10) => True ,  (10==="10") => False
+In TypeScript ==  operator checks values only but not datatype  ==>>>   (10==10) => True ,  (10=="10") => True
+
+************************     Null and Undefined data types are not have any methods    ****************************************
+
+Syntax for null :    const result: string | null = null;
+
+Syntax for undefined :    let x: number;
+
+undefined -> Variable declared but not assigned
+null      -> Intentionally empty value
+
+typeof undefined -> "undefined"
+typeof null      -> "object"
+
+null == undefined  -> true
+null === undefined -> false
+
+??  -> Default value for null/undefined
+?.  -> Safe property access
+
+Methods:
+null      -> None
+undefined -> None
+
+************************     any and unknown data types are not have any methods    ****************************************
+
+Syntax for any :    let result: any = "hello";
+                        result = 40;    >>>>>>>>>>>>>>>>>>  (Allow type casting silently)
+                        result = True;  >>>>>>>>>>>>>>>>>>  (Allow type casting silently)
+
+Syntax for unknown :    let safeVariable: unknown = "hello";
+                        if (typeof safeVariable === 'string') {     >>>>>>>> This code is for better practice
+                          console.log(safeVariable)
+                        }
+
+Note: If datatype is not sure better go with unknown data type instead of any and, also validate data type when
+           using unknown datatype by using typeof() method for better practice
+
+
