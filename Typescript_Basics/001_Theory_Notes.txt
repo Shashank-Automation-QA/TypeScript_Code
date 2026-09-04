@@ -5,6 +5,7 @@
 - string
 - number
 - boolean
+- symbol
 - null and undefined
 - any vs unknown 
 - Array
@@ -43,11 +44,136 @@ Syntax for any :    let result: any = "hello";
                         result = True;  >>>>>>>>>>>>>>>>>>  (Allow type casting silently)
 
 Syntax for unknown :    let safeVariable: unknown = "hello";
-                        if (typeof safeVariable === 'string') {     >>>>>>>> This code is for better practice
-                          console.log(safeVariable)
+                        if (typeof safeVariable === 'string') {     >>>>>>>> if you dont write this line next will give error
+                          console.log(safeVariable.toUpper()
                         }
 
 Note: If datatype is not sure better go with unknown data type instead of any and, also validate data type when
            using unknown datatype by using typeof() method for better practice
 
+*****************************************  Symbol() ************************************************************
 
+Symbol is basically a data type in TypeScript it basically makes sure that the key we are making for object
+data type should be unique and should not be duplicated in future below see example
+
+suppose multiple people are working in single object ids
+
+Symbol is a primitive data type in TypeScript/JavaScript. It is used to create unique identifiers.
+    The main purpose of Symbol is to create object property keys that are guaranteed to be unique, helping
+    avoid accidental property name collisions.
+
+Without Symbol:
+const ids = {user_1 : 1, user_2: 2};
+
+Another developer may accidentally use the same key:
+ids.user_1 = 3;
+
+Now the original value is overwritten. To avoid property name collisions, we can use Symbol.
+
+const user = Symbol("user_1");       // think like unique id is xyz for user_1
+
+const ids = {[user]: 1, user_2: 2};
+
+The property key is now a unique Symbol instead of the string "user_1".
+
+Even if another developer creates:
+const anotherUser = Symbol("user_1");   // think like unique id is abc for user_1
+
+both Symbols are different.
+console.log(user === anotherUser);
+
+Output:
+false
+
+Therefore, Symbol keys are unique and do not conflict with other property names.
+
+***************************************** Explicit and Implicit(inference) ************************************************************
+
+let name: string = "Shashank"   // This refers to explicit because name will accept only string type of value
+
+let age = 25 // This refers to implicit(inference) because age can accept any type of value
+
+***************************************** Optional Chaining(.?) and Nullish Coalescing (??)  ************************************************************
+
+***********************  Optional Chaining(.?)
+
+#without optional chaining
+let user = null;
+console.log(user.name)   >> It will give type error
+
+#with optional chaining
+let user = null;
+console.log(user?.name)   >> 1. user is null, >  2. so I can't get name, > 3. return undefined
+
+See below another example of optional chaining
+const employee = {personal: {address: {city: "Bangalore"}}};
+console.log(employee.personal.address.city);                  >>>>>   Bangalore
+
+now imagine address dose not exist means it looks like  >>   const employee = {personal: {}};
+console.log(employee.personal.address.city);    >>>>>>>  Type Error
+console.log(employee.personal?.address?.city);    >>>>>>>  Undefined
+
+
+
+***********************  Nullish Coalescing (??)
+
+Basically if the null value present, and you want to override only null value then we can use this approach
+
+let user = null;
+console.log(user?? "Guest")   >> Guest
+
+let user = "Shashank";
+console.log(user?? "Guest")   >> Shashank
+
+*******************************          Index Signatures        ******************************************
+
+Index signature is basically for defining the type of key as well so till now we were just defining the
+type of only values but with this approach we can define the type of keys as well in object data type
+
+Below example is there
+
+const nameAgeMap: { [index: string]: number } = {};
+nameAgeMap.jack = 25; // no error {jack : 25}
+nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+nameAgeMap.10 = "Fifty"; // this will give error because for key we decided the type as string
+console.log(nameAgeMap);
+
+********************************************   Enum   *****************************************************
+Enum basically decide what values can be assign to variable it save us to enter wrong values and typo errors
+
+Below example is there for numeric enums
+
+enum Status {Pass, Fail, Skip}
+
+let result: Status = Status.Pass;           // correct because Pass is present inside enum
+let result: Status = Status.Pas;           // fail show error because Pas is a typo error
+let result: Status = Status.Fail;           // correct because Fail is present inside enum
+let result: Status = Status.Failure;           // fail show error because Failure is not defined inside enum
+console.log(Status.Pass);                  // 0
+
+to get all the values and keys of enum we can write like >>>  console.log(Status);
+
+also give the default values like (indexing)
+Pass = 0
+Fail = 1
+Skip = 2
+
+but if you want to change order you can give like
+enum Status {Pass=1, Fail, Skip}
+
+so now default values be like
+Pass = 1
+Fail = 2
+Skip = 3
+
+Below example is there for string enums
+enum CardinalDirections {North = 'North', East = "East", South = "South", West = "West"};
+
+Note:: for string enum it won't do indexing
+
+In modern way in place of enum we use union type example is given below
+type Status = "Pass" | "Fail" | "Skip";
+let result = Status.Pass                  >>> Assign Pass inside result
+
+Note::  the main difference is enum creates object and  do internal indexing like 0, 1, 2 but union type don't do
+and also enums can be used by there names but for union type it is not required
