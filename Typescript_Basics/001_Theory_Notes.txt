@@ -138,6 +138,9 @@ nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'nu
 nameAgeMap.10 = "Fifty"; // this will give error because for key we decided the type as string
 console.log(nameAgeMap);
 
+Older way to write >>>>>>>    interface Scores { [student: string]: number}
+New way to write >>>>>>>      type Scores = Record<string, number>;          // Record is a builtin keyword which creates object
+
 ********************************************   Enum   *****************************************************
 Enum basically decide what values can be assign to variable it save us to enter wrong values and typo errors
 
