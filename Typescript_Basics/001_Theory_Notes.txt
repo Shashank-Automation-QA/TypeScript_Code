@@ -180,3 +180,43 @@ let result = Status.Pass                  >>> Assign Pass inside result
 
 Note::  the main difference is enum creates object and  do internal indexing like 0, 1, 2 but union type don't do
 and also enums can be used by there names but for union type it is not required
+
+**************************************** data type identification  ************************************
+
+In TypeScript there is NO method to identify the datatype on characters which is given inside string
+ in python we have methods like isdigit() isnum() isalpha() or isalnum() but here there is no such type
+ of methods so the easiest way to find out the difference between number, alphabets and special character is
+ regex so if we have problem like "Shashank09@#$%" and we need to identify then we can use below trick
+ /[0-9]/.test("value")             >>>>>>>  this is to check digit value, can be anything
+ /[A-Z]/.test("value")             >>>>>>>  this is to check capital alphabets, value can be anything
+ /[a-z]/.test("value")             >>>>>>>  this is to check small alphabets, value can be anything
+ /[^a-zA-Z0-9]/.test("value")      >>>>>>>  this is to check special character, value can be anything
+
+Note:: ^ is a negation sign it will neglect the given pattern and only look for the other values and .test
+ is a part of regex which is use the check the value we can consider as a syntax of regex
+
+Note:: see below the meaning of signs if we write these outside of [] and inside of \\ like \^[]+$\
+
+^ = start of string
+$ = end of string
++ = one or more times  (check below examples for better understanding)
+
+So if we have scenario to allow only numbers either single digit or multiple digit then we can write regex like below
+/^[0-9]+$/  >>> this will allow only for numbers either one or multiple digit like (1, 9999 or 23)
+
+/^[0-9]$/  >>> this will allow only for numbers but only one digit like (1, 4 or 9) if we put 99 then throw error
+
+ ****************************************   handling spaces    ********************************************
+
+ To handle spaces in TypeScript we use trim method or replace method with replace method we can use regex
+
+>> when we have scenario in which we have to handle (space, tab and next line) the go for regex below given with replace method
+  /\s/g   >>>>>>>>   this \s is for matching pattern (space, tab and next line) and g means global
+
+>> when we have scenario in which we have to handle only spaces the go for trim method below given with replace method
+trim()                 // Remove spaces from start and end
+trimStart()            // Remove spaces from start
+trimEnd()              // Remove spaces from end
+replaceAll(" ", "")    // Remove all normal spaces
+replaceAll(/\s/g, "")  // Remove all (whitespace , tab, nextline)
+replace(" ", "")       // Remove only first space

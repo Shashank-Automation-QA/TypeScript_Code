@@ -73,6 +73,7 @@ console.log(Object.entries(user1));       // [['name','Shashank'],['age',29]]
 
 
 // Has Own Property
+// let user1 = {name: "Shashank", age: 28};
 console.log(user1.hasOwnProperty("name"));      // true
 console.log(user1.hasOwnProperty("city"));      // false
 

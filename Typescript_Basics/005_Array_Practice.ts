@@ -2,12 +2,13 @@
 
 //var_declaration var_name: data_type = data;
 
-const user_name: string[] = ["Shahank", "singh"];
+const user_name: (number|string)[] = ["Shahank", "singh",29];
 
 console.log(user_name[0]);    //  >>  Shashank
 console.log(user_name[1]);    //  >>  singh
+console.log(user_name[2]);    //  >>  29
 
-//*************************************   String Methods *****************************************************/
+//*************************************   Array Methods *****************************************************/
 
 // Array Add Methods
 let arr1 = [10, 20, "shashank"];
@@ -85,9 +86,7 @@ console.log(arr17.every(x => x > 5)); // true
 
 // Array Reduce Methods
 let arr18 = [1, 2, 3, 4];
-console.log(
-    arr18.reduce((acc, curr) => acc + curr, 0)
-); // 10
+console.log(arr18.reduce((acc, curr) => acc + curr, 0)); // 10
 
 let arr19 = ["A", "B", "C"];
 console.log(
