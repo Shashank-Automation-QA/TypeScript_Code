@@ -220,3 +220,10 @@ trimEnd()              // Remove spaces from end
 replaceAll(" ", "")    // Remove all normal spaces
 replaceAll(/\s/g, "")  // Remove all (whitespace , tab, nextline)
 replace(" ", "")       // Remove only first space
+
+*********************************************  Regex some rules *******************************************
+search()  -> first match index
+match()   -> matched values
+test()    -> true/false
+g         -> useful with match()
+g         -> ignored by search()

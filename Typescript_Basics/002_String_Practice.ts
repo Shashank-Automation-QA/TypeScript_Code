@@ -277,13 +277,235 @@ console.log(count3);
 // WAP to Remove Spaces from a String
 const value1= " Hi I am here to remove spaces "
 let result3 = value1.replaceAll(" ", "");
-console.log(result3)
+console.log(result3);
 //                     OR
 let result4 = value1.replaceAll(/\s/g, "")     // for removing (space, tab and next line)
-console.log(result4)
+console.log(result4);
 
 // WAP to Find Maximum Occurring Character
-//
+const value2 = "shashank";
+let max = 0;
+let store:Record<string,number> = {};
+for(let i of value2){
+        store[i] = (store[i] ?? 0) + 1 ;
+        if(store[i]>max){
+            max = store[i];
+        }
+}
+for(let i in store){
+    if(store[i]===max){
+        console.log(i);
+    }
+}
+
 // WAP to Sort Characters in a String
-//
+const value3 = "shashank";
+// let list = [...value3];
+// list = list.sort();
+// let result5 = list.join("");
+// console.log(result5);
+
+//      OR
+
+console.log(([...value3].sort()).join(""));
+
 // WAP to Convert String to Title Case
+const sentence5 = "hello i am converting string to title case";
+let result5 = "";
+for(let word of sentence5.split(" ")){
+    result5 = result5 + ( word.charAt(0) ).toUpperCase() + word.slice(1,word.length) + " ";
+}
+console.log(result5);
+
+// ************************************ Scenario Based Question *************************************************
+
+// 1. Check whether a URL starts with "https://"
+//    Input: https://google.com
+//    Output: Valid URL
+const input =  "https://google.com";
+if(input.startsWith("https://")){
+    console.log("Valid URL");
+}
+
+// 2. Check whether a file name starts with "Report"
+//    Input: Report_January.pdf
+//    Output: true
+const input1 =  "Report_January.pdf";
+console.log(input1.startsWith("Report"));
+
+// 3. Check whether an email ends with ".com"
+//    Input: abc@gmail.com
+//    Output: true
+const input2 =  "abc@gmail.com";
+console.log(input2.endsWith(".com"));
+
+// 4. Check whether a file is a PDF
+//    Input: Resume.pdf
+//    Output: PDF File
+const input3 =  "Resume.pdf";
+console.log(input3.endsWith("pdf"));
+
+// 5. Check if user entered an empty string after trimming spaces
+//    Input: "      "
+//    Output: Empty Input
+const input4 =  "     ";
+if(input4.trim()===""){
+    console.log("Empty Input");
+}
+
+// 6. Count words after removing leading and trailing spaces
+//    Input: "   hello world typescript   "
+//    Output: 3
+const input5 = "   hello world typescript   ";
+console.log( ((input5.trim()).split(" ")).length );
+
+// 7. Remove only leading spaces
+//    Input: "     Shashank"
+//    Output: "Shashank"
+const input6 = "     Shashank";
+console.log(input6.trimStart());
+
+// 8. Remove only trailing spaces
+//    Input: "Shashank     "
+//    Output: "Shashank"
+const input7 = "Shashank     ";
+console.log(input7.trimEnd());
+
+// 9. Replace only first occurrence of a word
+//    Input: "hello hello hello"
+//    Output: "hi hello hello"
+const input8 = "hello hello hello";
+console.log(input8.replace("hello","hi"))
+
+// 10. Replace first digit with X
+//     Input: "abc123"
+//     Output: "abcX23"
+const input9 = "abc123";
+let input10 = "";
+for(let i of input9){
+    if(/[0-9]/.test(i)){
+        input10 = input9.replace(i, "X");
+        break;
+    }
+}
+console.log(input10);
+
+// 11. Print pattern using repeat()
+//
+//     *
+//     **
+//     ***
+//     ****
+//     *****
+for(let i of [...Array(6).keys()]){
+    console.log("*".repeat(Number(i)));
+}
+//           OR
+for(let i=0 ; i<=5 ; i++){
+    console.log("*".repeat(Number(i)));
+}
+
+// 12. Print ########## using repeat() only
+const value4 = "##########".length;
+console.log("#".repeat(value4));
+
+// 13. Convert 7 into 007
+//     Output: "007"
+const value5 = "7";
+console.log(value5.padStart(value5.length+2, "0"))
+
+// 14. Convert 45 into 00045
+//     Output: "00045"
+const value6 = 45;
+console.log(String(value6).padStart(String(value6).length + 3, "0"));
+
+// 15. Format output using padEnd()
+//
+//     Apple.....100
+//     Banana....50
+//     Mango.....80
+console.log("Apple".padEnd(10, ".") + "100")
+console.log("Banana".padEnd(10, ".") + "50")
+console.log("Mango".padEnd(10, ".") + "80")
+
+// 16. Extract username from email
+//     Input: shashank@gmail.com
+//     Output: shashank
+const value7 = "shashank@gmail.com";
+console.log(value7.substring(0 , value7.indexOf("@") ));
+//             OR
+const value8 = "shashank@gmail.com";
+console.log(value8.split("@")[0]);
+
+// 17. Extract domain name from email
+//     Input: shashank@gmail.com
+//     Output: gmail.com
+const value9= "shashank@gmail.com";
+console.log(value9.substring( value9.indexOf("@")+1 ,value9.length ))
+
+// 18. Count digits in a string
+//     Input: abc123xyz45
+//     Output: 5
+console.log("abc123xyz45".match(/\d/g)?.length)       // ? is required here because if someone pass "abc" in that case there is no numbers so it will return null and null.lenght give error
+
+// 19. Extract all digits from a string
+//     Input: abc123xyz45
+//     Output: ["1","2","3","4","5"]
+console.log("abc123xyz45".match(/\d/g))
+
+// 20. Extract all vowels from a string
+//     Input: Shashank Singh
+//     Output: ["a","a","a","i"]
+console.log("Shashank Singh".match(/[aeiouAEIOU]/g))
+console.log("Shashank Singh".match(/[aeiou]/gi))        //>>>  i indicates ignore case-sensitive
+
+// 21. Find position of first digit
+//     Input: abc123
+//     Output: 3
+console.log("abc123".search(/\d/))
+
+// 22. Find position of first special character
+//     Input: abc@123
+//     Output: 3
+console.log("abc@123".search(/[^a-zA-Z\d]/))
+
+// 23. Case-insensitive palindrome
+//     Input: Madam
+//     Output: Palindrome
+
+// 24. Case-insensitive anagram
+//     Input:
+//     Listen
+//     Silent
+//
+//     Output: Anagram
+//
+// 25. Compare two strings alphabetically using localeCompare()
+//     Input:
+//     apple
+//     banana
+//
+//     Output: -1
+//
+// 26. Sort array of strings alphabetically
+//     Input:
+//     ["banana","apple","cat"]
+//
+//     Output:
+//     ["apple","banana","cat"]
+//
+// 27. Extract file extension
+//     Input: resume.pdf
+//     Output: pdf
+//
+// 28. Mask credit card number
+//     Input: 1234567890123456
+//     Output: ************3456
+//
+// 29. Convert snake_case to camelCase
+//     Input: my_name_is_shashank
+//     Output: myNameIsShashank
+//
+// 30. Convert camelCase to snake_case
+//     Input: myNameIsShashank
+//     Output: my_name_is_shashank
