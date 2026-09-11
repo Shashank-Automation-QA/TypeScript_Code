@@ -63,7 +63,7 @@ console.log(str9.concat(" ", str10)); //Hello World
 // String Match and Search Method
 let str11 = "abc123xyz";
 console.log(str11.match(/\d+/));  //['123']
-console.log(str11.search(/\d+/)); //3
+console.log(str11.search(/\d+/)); //3   don't get confuse search always give index
 
 // String Extract Matching Parts Methods
 let str12 = "cat bat rat";
@@ -113,6 +113,20 @@ else{
 }
 
 // WAP to Check Anagram
+const ana = ["listen", "silent", "ate", "tea", "go"];
+let anaResult:Record<string,string[]> ={};
+for(let word of ana){
+    let sorted = word.split("").sort().join("");
+    // if(!anaResult.hasOwnProperty(sorted)){
+    //     anaResult[sorted] = [word];
+    // }
+    // else{
+    //     anaResult[sorted]?.push(word);
+    // }
+    // //              OR
+    (anaResult[sorted] ??= []).push(word);
+}
+console.log(anaResult)
 
 // WAP to Count Vowels
 const name2 = "Shashank";
@@ -243,8 +257,30 @@ for (const ch of name9) {
 }
 
 // WAP to Perform String Compression
+const compressionString = "aaabbccb";
+let listStr = [...compressionString];
+let count4 = 1;
+let finalResult = "";
+for (let i in listStr) {
+    if(listStr[i] === listStr[Number(i)+1]){
+        count4+=1;
+    }
+    else{
+        finalResult = finalResult + listStr[i] + count4
+        count4=1
+    }
+}
+console.log(finalResult)
 
 // WAP to Check Rotation of Strings
+const stg1 = "abcd";
+const stg2 = "cdab";
+if((stg1+stg1).includes(stg2)){
+    console.log("rotation");
+}
+else{
+console.log("rotation");
+}
 
 // WAP to Capitalize First Letter of a String
 const sentence4 = "Hello my name is Shashank i am doing training and watching movie Godzilla";
@@ -412,7 +448,7 @@ console.log("#".repeat(value4));
 // 13. Convert 7 into 007
 //     Output: "007"
 const value5 = "7";
-console.log(value5.padStart(value5.length+2, "0"))
+console.log(value5.padStart(value5.length+2, "0"));
 
 // 14. Convert 45 into 00045
 //     Output: "00045"
@@ -424,9 +460,9 @@ console.log(String(value6).padStart(String(value6).length + 3, "0"));
 //     Apple.....100
 //     Banana....50
 //     Mango.....80
-console.log("Apple".padEnd(10, ".") + "100")
-console.log("Banana".padEnd(10, ".") + "50")
-console.log("Mango".padEnd(10, ".") + "80")
+console.log("Apple".padEnd(10, ".") + "100");
+console.log("Banana".padEnd(10, ".") + "50");
+console.log("Mango".padEnd(10, ".") + "80");
 
 // 16. Extract username from email
 //     Input: shashank@gmail.com
@@ -441,71 +477,126 @@ console.log(value8.split("@")[0]);
 //     Input: shashank@gmail.com
 //     Output: gmail.com
 const value9= "shashank@gmail.com";
-console.log(value9.substring( value9.indexOf("@")+1 ,value9.length ))
+console.log(value9.substring( value9.indexOf("@")+1 ,value9.length ));
 
 // 18. Count digits in a string
 //     Input: abc123xyz45
 //     Output: 5
-console.log("abc123xyz45".match(/\d/g)?.length)       // ? is required here because if someone pass "abc" in that case there is no numbers so it will return null and null.lenght give error
+console.log("abc123xyz45".match(/\d/g)?.length);       // ? is required here because if someone pass "abc" in that case there is no numbers so it will return null and null.lenght give error
 
 // 19. Extract all digits from a string
 //     Input: abc123xyz45
 //     Output: ["1","2","3","4","5"]
-console.log("abc123xyz45".match(/\d/g))
+console.log("abc123xyz45".match(/\d/g));
 
 // 20. Extract all vowels from a string
 //     Input: Shashank Singh
 //     Output: ["a","a","a","i"]
-console.log("Shashank Singh".match(/[aeiouAEIOU]/g))
-console.log("Shashank Singh".match(/[aeiou]/gi))        //>>>  i indicates ignore case-sensitive
+console.log("Shashank Singh".match(/[aeiouAEIOU]/g));
+console.log("Shashank Singh".match(/[aeiou]/gi));        //>>>  i indicates ignore case-sensitive
 
 // 21. Find position of first digit
 //     Input: abc123
 //     Output: 3
-console.log("abc123".search(/\d/))
+console.log("abc123".search(/\d/));
 
 // 22. Find position of first special character
 //     Input: abc@123
 //     Output: 3
-console.log("abc@123".search(/[^a-zA-Z\d]/))
+console.log("abc@123".search(/[^a-zA-Z\d]/));
 
 // 23. Case-insensitive palindrome
 //     Input: Madam
 //     Output: Palindrome
+const value10 = "Madam";
+let input11 = value10.toUpperCase();
+let reverse = "";
+for(let i=input11.length-1 ; i >= 0 ; i--){
+    reverse = reverse + input11[i];
+}
+if(input11 === reverse){
+    console.log("palindrome");
+}
+else{
+    console.log("not palindrome");
+}
 
 // 24. Case-insensitive anagram
 //     Input:
 //     Listen
 //     Silent
-//
 //     Output: Anagram
-//
+const val1 = "Listen";
+const val2 = "Silent";
+if(val1.toUpperCase().split("").sort().join("") === val2.toUpperCase().split("").sort().join("")){
+    console.log("Anagram");
+}
+
 // 25. Compare two strings alphabetically using localeCompare()
 //     Input:
 //     apple
 //     banana
 //
 //     Output: -1
-//
+console.log("apple".localeCompare("Banana"));
+
 // 26. Sort array of strings alphabetically
 //     Input:
 //     ["banana","apple","cat"]
 //
 //     Output:
 //     ["apple","banana","cat"]
-//
+console.log(["banana","apple","cat"].sort());
+
 // 27. Extract file extension
 //     Input: resume.pdf
 //     Output: pdf
-//
+console.log("resume.pdf".substring("resume.pdf".indexOf(".")+1));
+
 // 28. Mask credit card number
 //     Input: 1234567890123456
 //     Output: ************3456
-//
+const Input = "1234567890123456"
+console.log("*".repeat(Input.length-4) + Input.substring(Input.length-4));
+
 // 29. Convert snake_case to camelCase
 //     Input: my_name_is_shashank
 //     Output: myNameIsShashank
-//
+const input12 = "my_name_is_shashank";
+let listOfInput = input12.split("_");
+let res = "";
+for(let word of listOfInput){
+    if(res===""){
+        res = res + word;
+    }
+    else{
+        res = res + word[0]?.toUpperCase() + word.substring(1);
+    }
+}
+console.log(res)
+
 // 30. Convert camelCase to snake_case
 //     Input: myNameIsShashank
 //     Output: my_name_is_shashank
+const input13 = "myNameIsShashank";
+let res1 = "";
+// for(let i of input13){
+//     if(i.match(/[A-Z]/)){
+//         console.log(i)
+//         res1 = res1 + "_" + i.toLowerCase();
+//     }
+//     else{
+//     res1 = res1 + i;
+//     }
+// }
+
+//**********  OR   **********
+
+for (let i of input13) {
+    if (i !== i.toLowerCase()) {
+        res1 += "_" + i.toLowerCase();
+    } else {
+        res1 += i;
+    }
+}
+console.log(res1)
