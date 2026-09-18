@@ -12,8 +12,84 @@
 - Tuple
 - Type Aliases and Union Types
 
-In TypeScript === operator checks values as well as datatype   ==>>>   (10===10) => True ,  (10==="10") => False
-In TypeScript ==  operator checks values only but not datatype  ==>>>   (10==10) => True ,  (10=="10") => True
+*******************************************    String Methods     *******************************************************
+
+Method                 Return Type                  Description
+
+length                 number                       Returns total number of characters
+charAt(index)          string                       Returns character at specified index
+at(index)              string | undefined           Returns character at index (supports negative index)
+indexOf(value)         number                       Returns first occurrence index, -1 if not found
+lastIndexOf(value)     number                       Returns last occurrence index, -1 if not found
+includes(value)        boolean                      Checks whether substring exists
+startsWith(value)      boolean                      Checks whether string starts with specified value
+endsWith(value)        boolean                      Checks whether string ends with specified value
+slice(start,end)       string                       Extracts portion of string
+substring(start,end)   string                       Extracts portion of string (no negative index support)
+toUpperCase()          string                       Converts all characters to uppercase
+toLowerCase()          string                       Converts all characters to lowercase
+trim()                 string                       Removes spaces from both sides
+trimStart()            string                       Removes spaces from beginning
+trimEnd()              string                       Removes spaces from end
+split(separator)       string[]                     Splits string into array
+replace(old,new)       string                       Replaces first occurrence only
+replaceAll(old,new)    string                       Replaces all occurrences
+concat(value)          string                       Combines strings together
+repeat(count)          string                       Repeats string specified number of times
+search(regex)          number                       Returns first regex match index
+match(regex)           RegExpMatchArray | null      Returns first regex match details
+matchAll(regex)        IterableIterator             Returns all regex matches
+localeCompare(str)     number                       Compares two strings alphabetically
+valueOf()              string                       Returns primitive string value
+toString()             string                       Converts string object to string
+test(regex)            boolean                      Checks whether regex matches string
+exec(regex)            RegExpExecArray | null       Returns regex match details
+
+*******************************************    Array Methods     *******************************************************
+
+Method                      Return Type                     Description
+length                      number                         Returns total number of elements
+push(item)                  number                         Adds element at end and returns new length
+pop()                       element | undefined            Removes last element and returns it
+unshift(item)               number                         Adds element at beginning and returns new length
+shift()                     element | undefined            Removes first element and returns it
+includes(value)             boolean                        Checks whether value exists
+indexOf(value)              number                         Returns first occurrence index, -1 if not found
+lastIndexOf(value)          number                         Returns last occurrence index
+at(index)                   element | undefined            Returns element at index (supports negative index)
+slice(start,end)            array                          Returns selected portion (does not modify original)
+splice(start,count)         array                          Adds/removes elements (modifies original)
+concat(array)               array                          Combines arrays
+join(separator)             string                         Converts array into string
+toString()                  string                         Converts array into comma-separated string
+reverse()                   array                          Reverses original array
+sort()                      array                          Sorts original array
+forEach(callback)           void                           Loops through array (returns nothing)
+map(callback)               array                          Returns transformed array
+filter(callback)            array                          Returns matching elements
+find(callback)              element | undefined            Returns first matching element
+findIndex(callback)         number                         Returns first matching index
+findLast(callback)          element | undefined            Returns last matching element
+findLastIndex(callback)     number                         Returns last matching index
+some(callback)              boolean                        Returns true if at least one match found
+every(callback)             boolean                        Returns true if all elements match
+reduce(callback,initial)    any                            Reduces array to a single value
+flat()                      array                          Flattens nested arrays
+flatMap(callback)           array                          Performs map + flat together
+fill(value)                 array                          Fills array with specified value
+copyWithin()                array                          Copies part of array within same array
+Array.from()                array                          Creates array from iterable/object
+Array.of()                  array                          Creates array from provided values
+entries()                   Iterator                       Returns index-value pairs
+keys()                      Iterator                       Returns indexes
+values()                    Iterator                       Returns values
+
+toReversed()                array                          Returns reversed copy (doesn't modify original)
+toSorted()                  array                          Returns sorted copy (doesn't modify original)
+toSpliced()                 array                          Returns modified copy (doesn't modify original)
+with(index,value)           array                          Replaces value at index and returns new array
+Array.isArray(value)        boolean                        Checks whether value is an array
+reduceRight(callback)       any                            Same as reduce(), but from right to left
 
 ************************     Null and Undefined data types are not have any methods    ****************************************
 
@@ -93,7 +169,12 @@ let name: string = "Shashank"   // This refers to explicit because name will acc
 
 let age = 25 // This refers to implicit(inference) because age can accept any type of value
 
-***************************************** Optional Chaining(.?) and Nullish Coalescing (??)  ************************************************************
+*******************************************    Operators    ****************************************************************
+
+In TypeScript === operator checks values as well as datatype   ==>>>   (10===10) => True ,  (10==="10") => False
+In TypeScript ==  operator checks values only but not datatype  ==>>>   (10==10) => True ,  (10=="10") => True
+
+*************** Optional Chaining(.?) and Nullish Coalescing (??)
 
 ***********************  Optional Chaining(.?)
 
@@ -112,7 +193,6 @@ console.log(employee.personal.address.city);                  >>>>>   Bangalore
 now imagine address dose not exist means it looks like  >>   const employee = {personal: {}};
 console.log(employee.personal.address.city);    >>>>>>>  Type Error
 console.log(employee.personal?.address?.city);    >>>>>>>  Undefined
-
 
 
 ***********************  Nullish Coalescing (??)
@@ -227,3 +307,14 @@ match()   -> matched values
 test()    -> true/false
 g         -> useful with match()
 g         -> ignored by search()
+
+********************************************* Loop  ********************************************************
+
+for...of:
+      This loop basically use for string, array, set and tuple it returns always values.
+      If we use this loop with objects directly then it will give error we always have to use object.keys() or object.values().
+
+for...in:
+      This loop basically use for array and objects it returns always indexes.
+      When we use this loop with objects keys are always treated as indexes so it is returning keys same way work with array and return default keys which is (0,1,2....)
+      Since it is returning keys in form of index always return in string datatype.

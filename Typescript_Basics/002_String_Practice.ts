@@ -271,6 +271,8 @@ for (let i in listStr) {
     }
 }
 console.log(finalResult)
+// Note: This note is for above program as we can see we are converting string to array because for..in loop mostly uses
+//with array or object and one more point it will return index always string data type so we have to convert in Number
 
 // WAP to Check Rotation of Strings
 const stg1 = "abcd";
@@ -600,3 +602,52 @@ for (let i of input13) {
     }
 }
 console.log(res1)
+
+
+//******************************************* String Interview Questions  ******************************************
+
+//***********   Difference b/w for...in and for...of loop   ************
+// for...of:
+//      This loop basically use for string, array, set and tuple it returns always values.
+//      If we use this loop with objects directly then it will give error we always have to use object.keys() or object.values().
+
+// for...in:
+//      This loop basically use for array and objects it returns always indexes.
+//      When we use this loop with objects keys are always treated as indexes so it is returning keys same way work with array and return default keys which is (0,1,2....)
+//      Since it is returning keys in form of index always return in string datatype so when we are using we need to convert in Number datatype.
+
+// ***********   Difference b/w charAt() and []   ************
+// const name = "Shashank";
+// charAt(-1) returns empty string for invalid index
+// [-1] returns undefined
+//
+// Note: Both of them dont work with negative indexing.
+
+//**********   Difference b/w slice() and substring()  ************
+// Slice:
+//     slice() = strict
+//     It supports negative indexing.
+//     if (start index < end index) in that case it will return empty string.
+
+// substring:
+//     substring() = smart
+//     It does not support negative indexing if we provide negative indexing it is treating as 0.
+//     if (start index < end index ) in that case it will swap the index and give output
+
+//**********   Difference b/w match() vs search() vs matchAll() vs test  ************
+//  test:
+//      /\d+/.test(str)     >> It returns true or false and check the patter is matching or not
+
+//  search():
+//      "abc123xyz".search(/\d+/)   >> To find the index of first match so basically when we want index of particular value we use search()
+//                                  >> If value not found then it returns -1
+
+//  match():
+//        without g flag ("hello hello".match(/hello/))  it will return only the first matching value along with metadata.
+//        with g flag ("hello hello".match(/hello/g))  it will return all matches as an array without metadata.
+
+//  matchAll():
+//        "hello hello".matchAll(/hello/g)  it will return all matching value along with metadata.
+//        using g is mandatory along with matchALl()
+//        it return iterator like array of array [[], [], []]
+
