@@ -163,19 +163,19 @@ console.log(Math.min(...array3))
 
 // WAP to Find Sum of Array
 const array4 = [1,2,5,4,3];
-let sum = 0;
+let sum0 = 0;
 for(let i of array4){
-    sum = sum +i;
+    sum0 = sum0 +i;
 }
-console.log(sum)
+console.log(sum0)
 
 // WAP to Find Average of Array
 const array5 = [1,2,5,4,3];
-let sum1 = 0;
+let sum11 = 0;
 for(let i of array5){
-    sum1 = sum1 +i;
+    sum11 = sum11 +i;
 }
-console.log(sum1/array5.length)
+console.log(sum11/array5.length)
 
 // WAP to find Second Largest
 const array6 = [1,2,5,4,3,6,9];
@@ -215,183 +215,317 @@ for(let i of array10){
 }
 
 // WAP to Count Even Numbers
-const array11 = [1,2,3,4,5,6];
+const array11 = [1,2,3,4,5,6,7];
+let count = 0
+for(let i of array11){
+    if(i%2==0){
+        count+=1
+    }
+}
+console.log(count)
 
 // WAP to Count Odd Numbers
 const array12 = [1,2,3,4,5,6];
+let count1 = 0
+for(let i of array12){
+    if(i%2!==0){
+        count1+=1
+    }
+}
+console.log(count1)
 
 // WAP to Find Sum of Even Numbers
 const array13 = [1,2,3,4,5,6];
+let sum = 0
+for(let i of array13){
+    if(i%2==0){
+        sum= sum + i;
+    }
+}
+console.log(sum)
 
 // WAP to Find Sum of Odd Numbers
 const array14 = [1,2,3,4,5,6];
+let sum1 = 0
+for(let i of array14){
+    if(i%2!==0){
+        sum1= sum1 + i;
+    }
+}
+console.log(sum1)
 
 // WAP to Count Positive Numbers
 const array15 = [-2,-1,0,1,2,3];
+let count2 = 0
+for(let i of array15){
+    if(i>=0){
+        count2+= 1;
+    }
+}
+console.log(count2)
 
 // WAP to Count Negative Numbers
 const array16 = [-2,-1,0,1,2,3];
+let count13 = 0
+for(let i of array16){
+    if(i<0){
+        count13+= 1;
+    }
+}
+console.log(count13)
 
 // WAP to Print Array in Reverse without using reverse()
 const array17 = [1,2,3,4,5];
+let empty_array = [];
+for(let i of array17){
+    empty_array.unshift(i)
+}
+console.log(empty_array)
 
 // WAP to Find First Element of Array
 const array18 = [10,20,30,40,50];
+console.log(array18[0])
 
 // WAP to Find Last Element of Array
 const array19 = [10,20,30,40,50];
+console.log(array19[array19.length-1])
 
 // WAP to Check Whether an Element Exists in Array using includes()
 const array20 = [10,20,30,40,50];
+console.log(array20.includes(10))
 
 // WAP to Find Index of Element using indexOf()
 const array21 = [10,20,30,40,50];
+console.log(array21.indexOf(20))
 
 // WAP to Find Last Occurrence of Element using lastIndexOf()
 const array22 = [10,20,30,20,40,20,50];
+console.log(array22.lastIndexOf(20))
 
 // WAP to Count Occurrences of Specific Element
 const array23 = [10,20,30,20,40,20,50];
+let count3 =0;
+let element = 20;
+for(let i of array23){
+    if(i===element){
+        count3+=1;
+    }
+}
+console.log(count3)
 
 // WAP to Find All Indices of Specific Element
-const array24 = [10,20,30,20,40,20,50];
+const array24 = [10,20,30,20,40,20,50,20];
+for(let i=0; i < array24.length; i++){
+    if(array24[i]===20){
+        console.log(i)
+    }
+}
 
 // WAP to Find First Duplicate Element using indexOf() and lastIndexOf()
 const array25 = [1,2,3,4,2,5,6];
+for(let i of array25){
+    if(array25.indexOf(i) !== array25.lastIndexOf(i)){
+        console.log(i)
+        break
+    }
+}
 
 // WAP to Find First Non-Repeating Element using Frequency Count
 const array26 = [1,2,2,3,3,4,5,5];
+for(let i of array26){
+    if(array26.indexOf(i) === array26.lastIndexOf(i)){
+        console.log(i)
+        break
+    }
+}
 
-// WAP to Check Whether Array is Sorted
+//WAP to Check Whether Array is Sorted
 const array27 = [1,2,3,4,5];
+let sorted = true;
+for(let i=0; i<array27.length-1; i++){
+    if (array27[i]! >array27[i+1]!){
+        sorted = false;
+        break;
+    }
+}
+console.log(sorted? "array is sorted" : "array is not sorted")
 
 // WAP to Sort Array in Ascending Order using sort()
 const array28 = [5,2,8,1,9];
+console.log(array28.sort((a,b)=> a-b))
 
 // WAP to Sort Array in Descending Order using sort()
 const array29 = [5,2,8,1,9];
+console.log(array29.sort((a,b)=> b-a))
 
 // WAP to Find Third Largest Element using sort()
 const array30 = [5,2,8,1,9,7,6];
+console.log(array30.sort((a,b) => a-b)[array30.length-3])
 
 // WAP to Find Third Smallest Element using sort()
 const array31 = [5,2,8,1,9,7,6];
+console.log(array31.sort((a,b) => a-b)[2])
 
 // WAP to Add Element at End of Array using push()
 const array32 = [1,2,3,4];
+array32.push(5);
+console.log(array32)
 
 // WAP to Remove Element from End of Array using pop()
 const array33 = [1,2,3,4];
+array33.pop();
+console.log(array33)
 
 // WAP to Add Element at Beginning of Array using unshift()
 const array34 = [1,2,3,4];
+array34.unshift(0);
+console.log(array34)
 
 // WAP to Remove Element from Beginning of Array using shift()
 const array35 = [1,2,3,4];
+array35.shift();
+console.log(array35)
 
 // WAP to Insert Element at Specific Position using splice()
 const array36 = [1,2,4,5];
+array36.splice(1,0,0)
+console.log(array36)
 
 // WAP to Remove Element at Specific Position using splice()
 const array37 = [1,2,3,4,5];
+array37.splice(0,1)
+console.log(array37)
 
 // WAP to Replace Element at Specific Position using splice()
 const array38 = [1,2,3,4,5];
+array38.splice(0,1,0)
+console.log(array38)
 
 // WAP to Extract First N Elements using slice()
 const array39 = [1,2,3,4,5,6,7];
+console.log(array39.slice(0,4))
 
 // WAP to Extract Last N Elements using slice()
 const array40 = [1,2,3,4,5,6,7];
+console.log(array40.slice(array40.length-4, array40.length))
 
 // WAP to Create Copy of Array using slice()
 const array41 = [1,2,3,4,5];
+console.log(array41.slice(0,array41.length))
 
 // WAP to Create Copy of Array using Spread Operator (...)
 const array42 = [1,2,3,4,5];
+console.log([...array42])
 
 // WAP to Merge Two Arrays using concat()
 const array43a = [1,2,3];
 const array43b = [4,5,6];
+console.log(array43a.concat(array43b))
 
 // WAP to Merge Two Arrays using Spread Operator (...)
 const array44a = [1,2,3];
 const array44b = [4,5,6];
+console.log([...array44a,...array44b])
 
 // WAP to Find Common Elements Between Two Arrays using filter() and includes()
 const array45a = [1,2,3,4,5];
 const array45b = [4,5,6,7,8];
+console.log(array45a.filter(element => array45b.includes(element)))
 
 // WAP to Find Difference Between Two Arrays using filter() and includes()
 const array46a = [1,2,3,4,5];
 const array46b = [4,5,6,7,8];
+console.log(array46a.filter(element => !array46b.includes(element)))
 
 // WAP to Find Union of Two Arrays using Set()
 const array47a = [1,2,3,4];
 const array47b = [3,4,5,6];
+console.log([...new Set([...array47a, ...array47b])])
 
 // WAP to Remove Duplicate Elements using filter()
 const array48 = [1,2,2,3,3,4,5,5];
+console.log(array48.filter((element, index) => array48.indexOf(element)===index))
 
 // WAP to Square Every Element using map()
 const array49 = [1,2,3,4,5];
+console.log(array49.map(element => element ** 2))
 
 // WAP to Double Every Element using map()
 const array50 = [1,2,3,4,5];
+console.log(array50.map(element => element * 2))
 
 // WAP to Add 10 to Every Element using map()
 const array51 = [1,2,3,4,5];
+console.log(array51.map(element => element+10))
 
 // WAP to Convert Number Array into String Array using map()
 const array52 = [1,2,3,4,5];
+console.log(array52.map(element => String(element)))
 
 // WAP to Get All Even Numbers using filter()
 const array53 = [1,2,3,4,5,6,7,8];
+console.log(array53.filter(element => element%2===0))
 
 // WAP to Get All Odd Numbers using filter()
 const array54 = [1,2,3,4,5,6,7,8];
+console.log(array54.filter(element => element%2!==0))
 
 // WAP to Get All Positive Numbers using filter()
 const array55 = [-3,-2,-1,0,1,2,3];
+console.log(array55.filter(element => element>=0))
 
 // WAP to Get All Negative Numbers using filter()
 const array56 = [-3,-2,-1,0,1,2,3];
+console.log(array56.filter(element => element<0))
 
 // WAP to Get Numbers Greater Than Given Value using filter()
 const array57 = [5,10,15,20,25,30];
+console.log(array57.filter(element => element>15))
 
 // WAP to Find Sum of Array using reduce()
 const array58 = [1,2,3,4,5];
+console.log(array58.reduce((acc,element) => acc+element,0))
 
 // WAP to Find Product of Array using reduce()
 const array59 = [1,2,3,4,5];
+console.log(array59.reduce((acc,element) => acc*element,1))
 
 // WAP to Find Largest Element using reduce()
 const array60 = [5,2,8,1,9];
+console.log(array60.reduce((acc,element) => acc! > element ? acc : element ,array60[0]))
 
 // WAP to Find Smallest Element using reduce()
 const array61 = [5,2,8,1,9];
+console.log(array61.reduce((acc,element) => acc! < element ? acc : element ,array61[0]))
 
 // WAP to Find Frequency Count using reduce()
 const array62 = [1,2,2,3,3,3,4,5];
+let result: Record<number, number> = {};
+console.log(array62.reduce((acc,element)=> {acc[element] = (acc[element]??0) + 1; return acc}, result))
 
 // WAP to Find First Even Number using find()
 const array63 = [1,3,5,8,10];
+console.log(array63.find(element => element%2===0))
 
 // WAP to Find First Odd Number using find()
 const array64 = [2,4,6,7,8];
+console.log(array64.find(element => element%2!==0))
 
 // WAP to Find First Negative Number using find()
 const array65 = [5,3,0,-1,-2];
+console.log(array65.find(element => element<0))
 
 // WAP to Find First Number Greater Than Given Value using find()
 const array66 = [5,10,15,20,25];
+console.log(array66.find(element => element<10))
 
 // WAP to Find Index of First Even Number using findIndex()
 const array67 = [1,3,5,8,10];
+console.log(array67.findIndex(element => element<0))
 
 // WAP to Find Index of First Negative Number using findIndex()
 const array68 = [5,3,0,-1,-2];
+console.log(array68.findIndex(element => element<0))
 
 // WAP to Find Index of First Number Greater Than Given Value using findIndex()
 const array69 = [5,10,15,20,25];
