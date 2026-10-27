@@ -41,7 +41,7 @@ console.log(arr6.slice(1, 4)); // [20, 30, 40]           //slice always don't co
 console.log(arr6); // Original array unchanged
 
 let arr7 = [10, 20, 30, 40];
-console.log(arr7.splice(1, 2)); // [20, 30]              //splice always consider the stop value and change original array
+console.log(arr7.splice(1, 2)); // [20, 30]              //splice always consider the count of to be deleted elements from the given start index
 console.log(arr7); // [10, 40]
 
 // Array Join & Convert Methods
@@ -529,45 +529,69 @@ console.log(array68.findIndex(element => element<0))
 
 // WAP to Find Index of First Number Greater Than Given Value using findIndex()
 const array69 = [5,10,15,20,25];
+console.log(array69.findIndex(element=> element>14))
 
 // WAP to Check Whether Array Contains Any Even Number using some()
 const array70 = [1,3,5,8,9];
+console.log(array70.some(element=>element%2==0))
 
 // WAP to Check Whether Array Contains Any Negative Number using some()
 const array71 = [1,2,3,-1,4];
+console.log(array71.some(element=>element<0))
 
 // WAP to Check Whether Array Contains Any Number Greater Than Given Value using some()
 const array72 = [5,10,15,20,25];
+console.log(array72.some(element=>element>20))
 
 // WAP to Check Whether All Numbers are Even using every()
 const array73 = [2,4,6,8];
+console.log(array73.every(element=>element%2==0))
 
 // WAP to Check Whether All Numbers are Positive using every()
 const array74 = [1,2,3,4,5];
+console.log(array74.every(element=>element>0))
 
 // WAP to Check Whether All Numbers are Greater Than Zero using every()
 const array75 = [1,2,3,4,5];
+console.log(array75.every(element=>element>0))
 
 // WAP to Find Missing Number using reduce()
 const array76 = [1,2,3,5];
+console.log( (5*(5+1)/2) - array76.reduce((acc,element)=>element+acc),0)
 
 // WAP to Rotate Array Left by One Position using shift() and push()
 const array77 = [1,2,3,4,5];
+array77.push(array77.shift()!)
+console.log(array77)
 
 // WAP to Rotate Array Right by One Position using pop() and unshift()
 const array78 = [1,2,3,4,5];
+array78.unshift(array78.pop()!)
+console.log(array78)
 
 // WAP to Move All Zeros to End using filter()
 const array79 = [0,1,0,3,12];
+console.log(array79.filter(element=>element>0))
 
 // WAP to Move All Zeros to Beginning using filter()
 const array80 = [0,1,0,3,12];
+let result1 = [...array80.filter(element=>element==0),...array80.filter(element=>element)]
+console.log(result1)
 
 // WAP to Separate Even and Odd Numbers using filter()
 const array81 = [1,2,3,4,5,6];
+let even = array81.filter(element=>element%2==0)
+console.log(even)
+let odd =  array81.filter(element=>element%2!=0)
+console.log(odd)
 
 // WAP to Find Pair With Given Sum using Nested Loop
 const array82 = [1,2,3,4,5,6];
+let targetValue = 7;
+for(let i in array82){
+    for(let j in array82){
+        if (i>j && (array82[i]! + array82[j]! == targetValue)){
+        console.log(array82[i],array82[j])}}}
 
 // WAP to Solve Two Sum Problem using Object or Map
 const array83 = [2,7,11,15];

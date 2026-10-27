@@ -58,7 +58,7 @@ indexOf(value)              number                         Returns first occurre
 lastIndexOf(value)          number                         Returns last occurrence index
 at(index)                   element | undefined            Returns element at index (supports negative index)
 slice(start,end)            array                          Returns selected portion (does not modify original)
-splice(start,count)         array                          Adds/removes elements (modifies original)
+splice(start,delete count)  array                          Adds/removes elements (modifies original)
 concat(array)               array                          Combines arrays
 join(separator)             string                         Converts array into string
 toString()                  string                         Converts array into comma-separated string
@@ -91,8 +91,36 @@ with(index,value)           array                          Replaces value at ind
 Array.isArray(value)        boolean                        Checks whether value is an array
 reduceRight(callback)       any                            Same as reduce(), but from right to left
 
-************************     Null and Undefined data types are not have any methods    ****************************************
+Note:: Few of the array methods are explained below with are new in TypeScript as compare to python
 
+This Splice method always modify the original array
+*Splice this method take 2 arguments if we want to delete any value like =>> array.splice(strat index, count of delete values)
+when we delete any elements it always returns the value of element
+
+*Splice this method take more than 2 arguments if we want to add any values like =>> array.splice(strat index, count of delete value, new values with , separate)
+while adding a new element it does not shift the old elements it removes the old arguments and replace it with new one
+
+*toSpliced method is similar to splice only deference is this method create new array and not change the original array value
+this method can also be add, delete and replace the values similar like Splice method
+
+*sort method while using the sort numbers we always write like array.sort((a,b)=>a-b) for ascending order and for descending order array.sort((a,b)=>b-a)
+
+*forEach method is used when users wants to Print values, Update a variable, Call an API or Log data, and it always returns undefined.
+
+*map method is used when users want to transform data like Double numbers, Convert names to uppercase or Create a new object structure it always return new array.
+
+*filter method we use when we have to filter the data on the basis of any condition so filter always stores data inside array which is satisfying the condition
+
+*find method gives the only first value which satisfy the condition
+
+*findIndex method gives the only first value index which satisfy the condition
+
+*some method checks if any of one element is satisfying the condition it returns true
+
+*every method checks if all  elements are satisfying the condition it returns true
+
+
+************************     Null and Undefined data types are not have any methods    ****************************************
 Syntax for null :    const result: string | null = null;
 
 Syntax for undefined :    let x: number;
@@ -229,10 +257,10 @@ Below example is there for numeric enums
 enum Status {Pass, Fail, Skip}
 
 let result: Status = Status.Pass;           // correct because Pass is present inside enum
-let result: Status = Status.Pas;           // fail show error because Pas is a typo error
+let result: Status = Status.Pas;            // fail show error because Pas is a typo error
 let result: Status = Status.Fail;           // correct because Fail is present inside enum
-let result: Status = Status.Failure;           // fail show error because Failure is not defined inside enum
-console.log(Status.Pass);                  // 0
+let result: Status = Status.Failure;        // fail show error because Failure is not defined inside enum
+console.log(Status.Pass);                   // 0
 
 to get all the values and keys of enum we can write like >>>  console.log(Status);
 
